@@ -50,6 +50,10 @@ class App extends Component<{}, IState> {
           <div className="Graph">
             {this.renderGraph()}
           </div>
+          {/* Trader can easily see their trading opportunities */}
+          <div className="opp_alert">
+            Trading Opportunities
+          </div>
         </div>
       </div>
     )
