@@ -1,0 +1,23 @@
+Explanation
+
+To illustrate a visual representation of the data, the ratio of stock ABC and stock 
+DEF was calculated and a lower and upper bound (+/- 10%) was also defined. To do this, 
+the existing schema was updated to illustrate the new structure. This new structure 
+showed the upper and lower bound, the trading opportunities (this is when the ratio of 
+ABC and DEF where either above the upper bound or below the lower bound) and the ratio 
+of the two stocks.
+
+For the purposes of showing a more frequent trading opportunity, I changed the lower and 
+upper bound in the DataManipulator.ts file to read +/- 5% and went on further to display
+the trading opportunity below the graph. I did this to help traders easily see the 
+opportunities instead of having to place their cursors on the graph. This in effect would
+reduce the amount of time spent identifying opportunities. To do this I created a 
+showOpp() function in the AlertsDisplay.ts file, which took in two parameters; the trading 
+opportunity ratio and the date and timestamp from the graph and had this information 
+displayed via an HTML table.
+
+Insights
+
+The trader can now easily identify trading opportunities. 
+Have the ratio of the two stocks displayed against a historical correlation.
+
