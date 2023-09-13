@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import DataStreamer, { ServerRespond } from './DataStreamer';
 import Graph from './Graph';
 import './App.css';
+import { AlertsDisplay } from "./AlertsDisplay";
+import { DataManipulator } from './DataManipulator';
+
 
 interface IState {
   data: ServerRespond[],
@@ -22,6 +25,15 @@ class App extends Component<{}, IState> {
       return (<Graph data={this.state.data}/>)
     }
   }
+
+  // renderAlerts() {
+  //   if (this.state.showGraph) {
+  //     var d = this.state.data;
+  //     // return (<Graph data={opportunity_alert}/>)
+      
+  //   }
+    
+  // }
 
   getDataFromServer() {
     let x = 0;
@@ -51,8 +63,22 @@ class App extends Component<{}, IState> {
             {this.renderGraph()}
           </div>
           {/* Trader can easily see their trading opportunities */}
-          <div className="opp_alert">
+          <div id="alert">
             Trading Opportunities
+            <table>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Trading Opportunity Ratio</th>
+              </tr>
+              <tr>
+                <td id="dateStamp"></td>
+                <td id="timeStamp"></td>
+                <td id="opportunity"></td>
+              </tr>
+
+            </table>
+            <p id="opp"></p>
           </div>
         </div>
       </div>

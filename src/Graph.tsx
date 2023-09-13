@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table, TableData } from '@finos/perspective';
 import { ServerRespond } from './DataStreamer';
 import { DataManipulator } from './DataManipulator';
+import { AlertsDisplay } from "./AlertsDisplay";
 import './Graph.css';
 
 interface IProps {
@@ -59,8 +60,16 @@ class Graph extends Component<IProps, {}> {
       this.table.update([
         DataManipulator.generateRow(this.props.data),
       ] as unknown as TableData);
+      var data = DataManipulator.generateRow(this.props.data);
+
+      if (data.opportunity_alert != undefined) {
+        AlertsDisplay.showOpp(data.opportunity_alert, data.timestamp);
+      }
     }
   }
+
+  
+
 }
 
 export default Graph;
